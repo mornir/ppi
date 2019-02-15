@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!--  Meta  -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="icon"
+      sizes="16x16"
+      href="./assets/fire-extinguisher.png"
+      type="image/png"
+    />
+    <script src="./app.js" type="module"></script>
+
+    <!--  Styles  -->
+    <link rel="stylesheet" href="./tailwind.css" />
+    <title>PPI</title>
+
+    <style>
+      .title-prescription:hover {
+        text-decoration: underline;
+        text-decoration-color: #e3342f;
+      }
+
+      .code {
+        flex-basis: 4rem;
+        text-align: center;
+        margin-right: 0.5rem;
+      }
+
+      .fire-background {
+        background-image: url('./pattern.svg');
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="font-sans fire-background">
+      <div class="container mx-auto max-w-xl p-4">
+        <div
+          id="prescriptions"
+          class="border-red border-l-4 bg-white shadow-md"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>
