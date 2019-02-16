@@ -1,5 +1,5 @@
 const API = 'https://79yex6i5.api.sanity.io/v1/data/query/production'
-const query = `?query=*[_type=="prescription"]`
+const query = `?query=*[_type=="prescription"] | order(code asc)`
 
 const prescriptionsRef = document.querySelector('#prescriptions')
 
