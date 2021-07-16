@@ -1,0 +1,10 @@
+{
+  "name": "PPI",
+  "short_name": "PPI",
+  "theme_color": "#e62d24",
+  "background_color": "#ececec",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
