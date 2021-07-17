@@ -13,8 +13,8 @@ fetch(API + query)
      <li class="flex flex-col md:items-center md:flex-row px-4 md:px-2 md:py-4 py-5 tracking-wide border-gray-300 border-b text-black">
       <span class="font-serif text-xl w-24 md:pl-6 mb-2 md:mb-0 ">${p.code}-15</span>
       <div>
-        <a href="${p.de.link}" target="_blank" class="block cursor-pointer title-prescription no-underline mb-1 md:text-lg ">${p.de.title}</a>
-        <a href="${p.fr.link}" target="_blank" class="block cursor-pointer title-prescription no-underline md:text-lg">${p.fr.title}</a>
+        <a href="${p.de.link}" target="_blank" class="block cursor-pointer c-hover no-underline mb-1 md:text-lg ">${p.de.title}</a>
+        <a href="${p.fr.link}" target="_blank" class="block cursor-pointer c-hover no-underline md:text-lg">${p.fr.title}</a>
       </div>
     </li>
     `
