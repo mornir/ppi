@@ -10,13 +10,13 @@ fetch(API + query)
   .then((prescriptions) => {
     const htmlDump = prescriptions.result.map((p) => {
       return `
-     <article class="flex items-center p-2 tracking-wide border-color-grey border-b text-black">
-      <span class="flex-no-shrink font-serif text-xl code">${p.code}-15</span>
+     <li class="flex flex-col lg:items-center lg:flex-row px-4 lg:px-2 lg:py-4 py-5 tracking-wide border-gray-300 border-b text-black">
+      <span class="font-serif text-xl w-24 lg:pl-6 mb-2 lg:mb-0">${p.code}&#8209;15</span>
       <div>
-        <a href="${p.de.link}" target="_blank" class="block mb-1 cursor-pointer title-prescription no-underline">${p.de.title}</a>
-        <a href="${p.fr.link}" target="_blank" class="block cursor-pointer title-prescription no-underline">${p.fr.title}</a>
+        <a href="${p.de.link}" target="_blank" class="block cursor-pointer title-prescription no-underline mb-1 lg:text-lg ">${p.de.title}</a>
+        <a href="${p.fr.link}" target="_blank" class="block cursor-pointer title-prescription no-underline lg:text-lg">${p.fr.title}</a>
       </div>
-    </article>
+    </li>
     `
     })
 

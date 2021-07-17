@@ -8,8 +8,9 @@
     "cross-env": "^7.0.3"
   },
   "scripts": {
-    "dev": "npx tailwindcss -o tailwind.css --watch --jit --purge=\"index.html,app.js\"",
-    "build": "cross-env NODE_ENV=production npx tailwindcss -i ./tailwind.css -o ./dist/tailwind.css --minify"
+    "jit": "npx tailwindcss -o tailwind.css --watch --jit --purge=\"index.html,app.js\"",
+    "build": "cross-env NODE_ENV=production npx tailwindcss -i ./tailwind.css -o ./tailwind.css --purge=\"index.html,app.js\" --minify",
+    "dev": "npx tailwindcss -o tailwind.css --watch --purge=\"index.html,app.js\""
   },
   "repository": {
     "type": "git",
