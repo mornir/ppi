@@ -25,7 +25,7 @@
       sizes="16x16"
       href="/icons/favicon-16x16.png"
     />
-    <link rel="manifest" href="/icons/site.webmanifest" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff0000" />
     <link rel="shortcut icon" href="/icons/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
@@ -50,17 +50,17 @@
       }
 
       .fire-background {
-        background-image: url('./pattern.svg');
+        background-image: url("./pattern.svg");
       }
     </style>
   </head>
 
   <body>
     <div class="font-sans fire-background min-h-screen">
-      <div class="container mx-auto max-w-xl p-4">
+      <div class="mx-auto max-w-3xl p-4">
         <div
           id="prescriptions"
-          class="border-red border-l-4 bg-white shadow-md"
+          class="border-red-600 border-l-4 bg-white shadow-md"
         ></div>
       </div>
     </div>
