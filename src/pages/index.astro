@@ -1,3 +1,21 @@
+---
+import Prescription from "../components/Prescription.astro"
+
+const API = "https://79yex6i5.api.sanity.io/v1/data/query/production"
+const query = `?query=*[_type=="prescription"] | order(code asc)`
+
+const res = await fetch(API + query)
+
+if(!res.ok)  {
+ console.error('Error Fetching') 
+}
+
+const data = await res.json()
+
+const prescriptions = data.result
+
+---
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -31,31 +49,22 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/icons/browserconfig.xml" />
     <meta name="theme-color" content="#dc2626" />
-    <script src="./app.js" type="module"></script>
-
-    <!--  Styles  -->
-    <link rel="stylesheet" href="./tailwind.css" />
     <title>PPI</title>
-
-    <style>
-      .c-hover:hover {
-        text-decoration: underline;
-        text-decoration-color: #dc2626;
-      }
-
-      .c-background {
-        background-image: url("./pattern.svg");
-      }
-    </style>
   </head>
 
   <body>
-    <div class="font-sans c-background min-h-screen">
+    <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
       <div class="mx-auto max-w-4xl px-4 py-12">
         <ul
-          id="prescriptions"
+      
           class="border-red-600 border-l-4 bg-white shadow-md"
-        ></ul>
+        >
+
+
+    
+{prescriptions.map(p => <Prescription code={p.code} fr={p.fr} de={p.de}></Prescription>)}
+
+      </ul>
       </div>
     </div>
   </body>
