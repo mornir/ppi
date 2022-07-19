@@ -1,16 +1,19 @@
 ---
 export interface Props {
-    code: string,
-    fr: { title: string, link: string },
-    de: { title: string, link: string },
+  code: string,
+  fr: { title: string, link: string },
+  de: { title: string, link: string },
 }
-const {code, fr, de} = Astro.props;
+const { code, fr, de } = Astro.props;
 ---
 
-<li class="flex flex-col md:items-center md:flex-row px-4 md:px-2 md:py-4 py-5 tracking-wide border-gray-300 border-b text-black">
-  <span class="font-serif text-xl w-24 md:pl-6 mb-2 md:mb-0 ">{code}-15</span>
+<li
+  class="flex flex-col md:items-center md:flex-row px-4 md:px-2 md:py-4 py-5 tracking-wide border-gray-300 border-b text-black">
+  <span class="font-serif text-xl w-24 md:pl-6 mb-2 md:mb-0 ">{code}</span>
   <div>
-    <a href={de.link} target="_blank" class="block cursor-pointer hover:underline  hover:decoration-red-600 no-underline mb-1 md:text-lg ">{de.title}</a>
-    <a href={fr.link} target="_blank" class="block cursor-pointer c-hover no-underline md:text-lg hover:underline  hover:decoration-red-600">{fr.title}</a>
+    <a href={de.link} target="_blank"
+      class="block cursor-pointer hover:underline  hover:decoration-red-600 no-underline mb-1 md:text-lg ">{de.title}</a>
+    <a href={fr.link} target="_blank"
+      class="block cursor-pointer c-hover no-underline md:text-lg hover:underline  hover:decoration-red-600">{fr.title}</a>
   </div>
 </li>
