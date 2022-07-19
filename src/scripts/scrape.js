@@ -1,12 +1,20 @@
-import { parse } from "node-html-parser";
+import { parse } from 'node-html-parser'
 export function scrape(htmlText) {
-  const root = parse(htmlText);
+  const root = parse(htmlText)
+  const titlesNodes = Array.from(root.querySelectorAll('.accordion__btn'))
 
-  const links = root.querySelectorAll("main a");
+  function getList(query) {
+    const links = titlesNodes
+      .find((e) => e.textContent.includes(query))
+      ?.nextElementSibling?.querySelectorAll('a')
 
-  console.table(links);
+    return links.map((link) => {
+      return {
+        text: link.textContent.trim(),
+        href: link.getAttribute('href'),
+      }
+    })
+  }
 
-  /* const directive = links.map(link =>) */
-
-  return links;
+  return getList('Directives')
 }

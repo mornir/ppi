@@ -47,14 +47,9 @@ const prescriptions = data.result
 <body>
   <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
 
-    {scraped}
     <div class="mx-auto max-w-4xl px-4 py-12">
       <ul class="border-red-600 border-l-4 bg-white shadow-md">
-
-
-
         {prescriptions.map(p => <Prescription code={p.code} fr={p.fr} de={p.de}></Prescription>)}
-
       </ul>
     </div>
   </div>
