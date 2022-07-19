@@ -1,71 +1,38 @@
 ---
+import { scrape } from "../scripts/scrape"
 import Prescription from "../components/Prescription.astro"
 
-const API = "https://79yex6i5.api.sanity.io/v1/data/query/production"
-const query = `?query=*[_type=="prescription"] | order(code asc)`
-
-const res = await fetch(API + query)
-
-if(!res.ok)  {
- console.error('Error Fetching') 
-}
-
-const data = await res.json()
-
-const prescriptions = data.result
-
+const { directives } = await scrape()
 ---
 
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!--  Meta  -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="robots" content="noindex" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/icons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff0000" />
-    <link rel="shortcut icon" href="/icons/favicon.ico" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-    <meta name="theme-color" content="#dc2626" />
-    <title>PPI</title>
-  </head>
 
-  <body>
-    <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
-      <div class="mx-auto max-w-4xl px-4 py-12">
-        <ul
-      
-          class="border-red-600 border-l-4 bg-white shadow-md"
-        >
+<head>
+  <!--  Meta  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="noindex" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff0000" />
+  <link rel="shortcut icon" href="/icons/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+  <meta name="theme-color" content="#dc2626" />
+  <title>PPI</title>
+</head>
 
-
-    
-{prescriptions.map(p => <Prescription code={p.code} fr={p.fr} de={p.de}></Prescription>)}
-
+<body>
+  <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
+    <div class="mx-auto max-w-4xl px-4 py-12">
+      <ul class="border-red-600 border-l-4 bg-white shadow-md">
+        {directives.map(p => <Prescription code={p.code} fr={p.fr} de={p.de}></Prescription>)}
       </ul>
-      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
