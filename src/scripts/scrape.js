@@ -6,7 +6,7 @@ export async function scrape() {
   // TODO: retry fetch
 
   const [responseFR, responseDE] = await Promise.all([
-    fetch('https://www.bsvonline.ch/fr/prescriptions/'),
+    fetch('https://www.bsvonline.ch/fr/prescriptio'),
     fetch('https://www.bsvonline.ch/de/vorschriften/'),
   ])
 
