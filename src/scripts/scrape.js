@@ -1,18 +1,10 @@
+import { got } from 'got'
 import { parse } from 'node-html-parser'
 
 export async function scrape() {
-  // TODO: check if response.ok
-
-  // TODO: retry fetch
-
-  const [responseFR, responseDE] = await Promise.all([
-    fetch('https://www.bsvonline.ch/fr/prescriptions/'),
-    fetch('https://www.bsvonline.ch/de/vorschriften/'),
-  ])
-
   const [htmlFR, htmlDE] = await Promise.all([
-    responseFR.text(),
-    responseDE.text(),
+    got('https://www.bsvonline.ch/fr/prescriptions/').text(),
+    got('https://www.bsvonline.ch/de/vorschriften/').text(),
   ])
 
   const rootFR = parse(htmlFR)

@@ -12,5 +12,8 @@
     "@astrojs/tailwind": "^0.2.1",
     "astro": "^1.0.0-beta.44",
     "node-html-parser": "^5.3.3"
+  },
+  "dependencies": {
+    "got": "^12.1.0"
   }
 }
