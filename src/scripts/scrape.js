@@ -51,8 +51,12 @@ export async function scrape() {
 
   const norme = getBilingualList('Norme', 'Norm')
   const directives = getBilingualList('Directives', 'Richtlinien')
+  const notes = getBilingualList('Notes', 'Erläuterungen')
+  const guides = getBilingualList('Guides', 'Merkblätter')
 
   return {
     directives: [...norme, ...directives],
+    notes,
+    guides,
   }
 }

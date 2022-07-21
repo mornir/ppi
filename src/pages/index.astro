@@ -1,8 +1,8 @@
 ---
 import { scrape } from "../scripts/scrape"
-import Prescription from "../components/Prescription.astro"
+import PrescriptionsList from "../components/PrescriptionsList.astro"
 
-const { directives } = await scrape()
+const { directives, notes, guides } = await scrape()
 ---
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ const { directives } = await scrape()
 
 <body>
   <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
-    <div class="mx-auto max-w-4xl px-4 py-12">
-      <ul class="border-red-600 border-l-4 bg-white shadow-md">
-        {directives.map(p => <Prescription code={p.code} fr={p.fr} de={p.de}></Prescription>)}
-      </ul>
+    <div class="mx-auto max-w-4xl px-4 py-16">
+      <PrescriptionsList prescriptions={directives} />
+      <PrescriptionsList prescriptions={notes} />
+      <PrescriptionsList prescriptions={guides} />
     </div>
   </div>
 </body>
