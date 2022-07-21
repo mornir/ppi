@@ -28,9 +28,9 @@ const { directives, notes, guides } = await scrape()
 <body>
   <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
     <div class="mx-auto max-w-4xl px-4 py-16">
-      <PrescriptionsList prescriptions={directives} />
-      <PrescriptionsList prescriptions={notes} />
-      <PrescriptionsList prescriptions={guides} />
+      <PrescriptionsList prescriptions={directives} color="red" />
+      <PrescriptionsList prescriptions={notes} color="blue" />
+      <PrescriptionsList prescriptions={guides} color="green" />
     </div>
   </div>
 </body>
