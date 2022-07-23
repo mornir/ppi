@@ -21,14 +21,16 @@ export async function scrape() {
       .find((e) => e.textContent.includes(query))
       ?.nextElementSibling?.querySelectorAll('a')
 
-    return links.map((link) => {
-      const [code, ...rest] = link.textContent.trim().split(' ')
-      return {
-        code,
-        title: rest.join(' '),
-        link: link.getAttribute('href'),
-      }
-    })
+    return links
+      .map((link) => {
+        const [code, ...rest] = link.textContent.trim().split(' ')
+        return {
+          code,
+          title: rest.join(' '),
+          link: link.getAttribute('href'),
+        }
+      })
+      .filter((p) => !p.link.includes('.zip'))
   }
 
   function getBilingualList(titleFR, titleDE) {
