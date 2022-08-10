@@ -9,8 +9,8 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^0.2.4",
-    "astro": "1.0.0-beta.73",
-    "node-html-parser": "^5.3.3"
+    "@astrojs/tailwind": "^1.0.0",
+    "astro": "1.0.1",
+    "node-html-parser": "^5.4.1"
   }
 }

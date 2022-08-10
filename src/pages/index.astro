@@ -36,3 +36,26 @@ const { directives, notes, guides } = await scrape()
 </body>
 
 </html>
+
+
+<script>
+
+  const colors = ['red', 'blue', 'green']
+
+  colors.forEach((color) => {
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+
+      if (entry.isIntersecting) {
+
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+
+        console.log(document.querySelector('meta[name="theme-color"]'))
+      }
+    })
+
+    observer.observe(document.querySelector(`#${color}`))
+  })
+
+</script>
