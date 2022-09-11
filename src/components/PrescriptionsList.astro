@@ -28,7 +28,7 @@ const { prescriptions = [], color = "red", title } = Astro.props
 
 <article class={`${border[color]} border-l-4 bg-white shadow-md`}>
   <h2 class={`md:px-8 px-4 text-xl font-semibold border-b md:py-4 py-5 ${bg[color]} bg-opacity-20 backdrop-blur-lg
-    sticky top-0`}>{ title }</h2>
+    sticky top-0`} id={color}>{ title }</h2>
   <ul>
     { prescriptions.map((p) => <li
       class="flex flex-col md:items-center md:flex-row md:px-8 px-4 md:py-4 py-5 tracking-wide border-gray-300 border-b">

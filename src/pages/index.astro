@@ -1,38 +1,89 @@
 ---
-import { scrape } from "../scripts/scrape"
-import PrescriptionsList from "../components/PrescriptionsList.astro"
+import { scrape } from '../scripts/scrape'
+import PrescriptionsList from '../components/PrescriptionsList.astro'
 
 const { directives, notes, guides } = await scrape()
 ---
 
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <!--  Meta  -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff0000" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+    <meta name="theme-color" content="#dc2626" />
+    <title>PPI</title>
+  </head>
 
-<head>
-  <!--  Meta  -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="robots" content="noindex" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff0000" />
-  <link rel="shortcut icon" href="/icons/favicon.ico" />
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-  <meta name="theme-color" content="#dc2626" />
-  <title>PPI</title>
-</head>
-
-<body>
-  <div class="font-sans  min-h-screen" style="background-image: url('./pattern.svg')">
-    <div class="mx-auto max-w-4xl px-4 py-16">
-      <PrescriptionsList prescriptions={directives} color="red" title="Norme et directives" />
-      <PrescriptionsList prescriptions={notes} color="blue" title="Notes explicatives" />
-      <PrescriptionsList prescriptions={guides} color="green" title="Guides" />
+  <body>
+    <div
+      class="font-sans min-h-screen"
+      style="background-image: url('./pattern.svg')"
+    >
+      <div class="mx-auto max-w-4xl px-4 py-16">
+        <PrescriptionsList
+          prescriptions={directives}
+          color="red"
+          title="Norme et directives"
+        />
+        <PrescriptionsList
+          prescriptions={notes}
+          color="blue"
+          title="Notes explicatives"
+        />
+        <PrescriptionsList
+          prescriptions={guides}
+          color="green"
+          title="Guides"
+        />
+      </div>
     </div>
-  </div>
-</body>
+    <script>
+      const colors = [
+        { name: 'red', hex: '#dc2626' },
+        { name: 'blue', hex: '#2563eb' },
+        { name: 'green', hex: '#16a34a' },
+      ]
 
+      colors.forEach((color) => {
+        const observer = new IntersectionObserver((entries) => {
+          const [entry] = entries
+
+          if (entry.isIntersecting) {
+            document
+              .querySelector('meta[name="theme-color"]')
+              ?.setAttribute('content', color.hex)
+          }
+        })
+
+        observer.observe(document.querySelector(`#${color.name}`))
+      })
+    </script>
+  </body>
 </html>
